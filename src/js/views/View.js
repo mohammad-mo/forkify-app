@@ -15,6 +15,35 @@ export default class views
         this._parentElement.insertAdjacentHTML('afterbegin', markup)
     }
 
+    update(data)
+    {
+      this._data = data
+      const newMarkup = this._generateMarkup()
+
+      //.createContextualFragment() converts the stirng into real DOM node object.(a DOM that lives in our memory)
+      const newDOM = document.createRange().createContextualFragment(newMarkup)
+      // Array.from() converts nodeList into a real array
+      const newElements = Array.from(newDOM.querySelectorAll('*'))
+      const currentElements = Array.from(this._parentElement.querySelectorAll('*'))
+
+      newElements.forEach((newEl, i) =>
+      {
+        const curEl = currentElements[i]
+
+        // Updates changed TEXT
+        if (!newEl.isEqualNode(curEl) && newEl.firstChild?.nodeValue.trim() !== '')
+        {
+          curEl.textContent = newEl.textContent
+        }
+
+        // Updates changed ATTRIBUTES
+        if (!newEl.isEqualNode(curEl))
+        {
+          Array.from(newEl.attributes).forEach(attr => curEl.setAttribute(attr.name, attr.value))
+        }
+      })
+    }
+
     _clear()
     {
         this._parentElement.innerHTML = ''
