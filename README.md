@@ -15,4 +15,5 @@ npm run start
 npm run build
 ```
 
-![forkify __ Search over 1,000,000 recipes - Google Chrome 12_27_2021 12_27_42 PM](https://user-images.githubusercontent.com/73068793/147454693-2a59237b-818c-4d33-a35b-8d231a35577e.png)
+![forkify __ Search over 1,000,000 recipes - Google Chrome 12_30_2021 3_01_30 PM](https://user-images.githubusercontent.com/73068793/147748302-2fc0a34b-5b95-4749-9d48-e71e647b1314.png)
+
